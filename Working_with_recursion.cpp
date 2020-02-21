@@ -8,6 +8,8 @@ using namespace std;
 // These are three basic recursive functions
 double sumover(unsigned int num);
 long long int factorial(long long int num);
+long long int fibonnacci(long long int num);
+long long int tribonnacci(long long int num);
 void tower(const int& number, int from,  int to);
 
 int main()
@@ -16,6 +18,8 @@ int main()
 	int num1=0;
 	int num2=0;
 	int num3=0;
+	int num4 = 0;
+	int num5 = 0;
 	int from=0;
 	int to=0;
 	char answer;
@@ -26,16 +30,18 @@ int main()
 		// this is a menu 
 	cout << "*******************************************************************************************************************" << endl;
 	cout << "* Select any of this cases   *" << endl;
-	cout << "* 1.sumover                   *" << endl;
+	cout << "* 1.sumover                  *" << endl;
 	cout << "* 2.Factorail                *" << endl;
 	cout << "* 3.Tower                    *" << endl;
+	cout << "* 4.Fibonacci sequence       *" << endl;
+	cout << "* 5.Tribonacci sequence      *" << endl;
 	cout << "*******************************************************************************************************************" << endl;
 	cout << "Please choose your option" << endl;
 	cin >> option;
 	cout <<  endl;
 
 	// This is a test case for when the user picks a number other than what was specified 
-	while (option != 1 && option != 2 && option != 3 ) {
+	while (option != 1 && option != 2 && option != 3 && option != 4 && option != 5) {
 		cout << "Please try again wrong input" << endl;
 		cin >> option;
 		cout <<  endl;
@@ -75,6 +81,30 @@ int main()
 		cout << endl;
 		tower(num3, from, to);
 		cout << endl;
+	}
+	else if (option == 4) {
+		cout << "This is a function that calculates the fibonacci sequence "<< endl;
+		cout << "The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. That is," <<endl;
+		cout << "F(0) = 0,   F(1) = 1" << endl;
+		cout << "F(N) = F(N - 1) + F(N - 2), for N > 1." << endl;
+		cout << "0 <= N <= 30." << endl;
+		cout << "*******************************************************************************************************************" << endl;
+		cout << "Please input a number" << endl;
+		cin >> num4;
+		cout << "*******************************************************************************************************************" << endl;
+		cout << "The sum of the fibonnaci sequence from " << num4 << "  is " << fibonnacci(num4) << endl;
+	}
+	else if (option == 5) {
+		cout << "This is a function that calculates the Tribonnaci sequence " << endl;
+		cout << "The tribonacci numbers, commonly denoted T(n) form a sequence, called the Tribonacci sequence." << endl;
+		cout << "The Tribonacci sequence Tn is defined as follows: "<<endl;
+		cout << "T0 = 0, T1 = 1, T2 = 1, and Tn + 3 = Tn + Tn + 1 + Tn + 2 for n >= 0."<<endl;
+		cout << "0 <= n <= 34" << endl;
+		cout << "*******************************************************************************************************************" << endl;
+		cout << "Please input a number" << endl;
+		cin >> num5;
+		cout << "*******************************************************************************************************************" << endl;
+		cout << "The sum of the tribonacci sequence from " << num5 << "  is " << tribonnacci(num5) << endl;
 	}
 	cout << "*******************************************************************************************************************" << endl;
 	cout << "Do you want to continue? " << endl;
@@ -146,3 +176,38 @@ void tower( const int& number, int from, int to) {
 
 
 };
+
+
+
+//This is a function that calculates the fibonacci sequence
+long long int fibonnacci(long long int num) {
+	if (num == 0) {
+		return 0;
+	}
+	else if (num == 1) {
+		return 1;
+	}
+	else {
+		return fibonnacci(num - 1) + fibonnacci(num - 2);
+	}
+}
+
+
+//This is a function that calculates the tribonacci sequence
+long long int tribonnacci(long long int num) {
+	if (num == 0) {
+		return 0;
+	}
+	else if (num == 1) {
+		return 1;
+	}
+	else if (num == 2) {
+		return 1;
+	}
+	else {
+
+		return tribonnacci(num - 1) + tribonnacci(num - 2) + tribonnacci(num - 3);
+	}
+
+}
+
